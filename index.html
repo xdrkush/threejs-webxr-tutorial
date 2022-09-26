@@ -260,10 +260,10 @@
         controls.update();
       }
 
-      function render(timestamp, frame) {
+      async function render(timestamp, frame) {
         if (frame && isAR) {
-          var referenceSpace = renderer.xr.getReferenceSpace();
-          var session = renderer.xr.getSession();
+          var referenceSpace = await renderer.xr.getReferenceSpace();
+          var session = await renderer.xr.getSession();
 
           if (hitTestSourceRequested === false) {
             session
