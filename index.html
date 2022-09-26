@@ -62,9 +62,14 @@
       var hitTestSource = null;
       var hitTestSourceRequested = false;
 
-      init();
-      animate();
-
+      window.addEventListener(
+        "load",
+        () => {
+          init();
+          animate();
+        },
+        false
+      );
       $(".ar-object").click(function () {
         if (current_object != null) {
           scene.remove(current_object);
@@ -86,7 +91,6 @@
       $("#place-button").click(function () {
         arPlace();
       });
-
       function arPlace() {
         if (reticle.visible) {
           current_object.position.setFromMatrixPosition(reticle.matrix);
