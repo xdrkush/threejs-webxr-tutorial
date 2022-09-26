@@ -20306,7 +20306,7 @@ function WebXRManager(renderer, gl) {
     return session;
   };
 
-  this.setSession = function (value) {
+  this.setSession = async function (value) {
     session = value;
 
     if (session !== null) {
@@ -20333,7 +20333,7 @@ function WebXRManager(renderer, gl) {
       };
 
       // eslint-disable-next-line no-undef
-      const baseLayer = new XRWebGLLayer(session, gl, layerInit);
+      const baseLayer = await new XRWebGLLayer(session, gl, layerInit);
 
       session.updateRenderState({ baseLayer: baseLayer });
 
